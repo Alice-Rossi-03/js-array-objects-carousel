@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: sans-serif;
+}
+
+.container{
+    margin: 4em auto;
+    width: 100%;
+    width: 40%;
+}
+
+header{
+    background-color: rgba(127, 88, 155, 0.414);
+    color: rgb(120, 96, 172);
+    text-align: center;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+
+.top-image figure{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid red;
+}
+
+img{
+    width: 100%;
+} 
+
+.bottom-container figure{
+    width: calc(100% / 5);
+    aspect-ratio: 1;
+}
+
+
+.bottom-container{
+    display: flex;
+}
+
+.d-none{
+    display: none;
+}
