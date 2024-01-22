@@ -45,7 +45,7 @@ let songArray = [
     },
 ]
 
-let mainHtml = document.querySelector("main")
+// let mainHtml = document.querySelector("main")
 
 let topImgContainer = document.getElementById("top-img-container")
 
@@ -72,7 +72,7 @@ leftArrow.addEventListener("click", function(){
 rightArrow.addEventListener("click", function(){
     // console.log("right-click")
 
-    for(let i = songArray.length; i > 0 ; i--){
+    for(let i = songArray.length - 1; i >= 0 ; i--){
         topImgContainer.innerHTML += `
             <figure>
                 <img src="${songArray[i].img}" alt="">
