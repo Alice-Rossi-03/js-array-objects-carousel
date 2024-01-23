@@ -52,19 +52,71 @@ let topImgContainer = document.getElementById("top-img-container")
 let leftArrow = document.getElementById("leftArrow")
 let rightArrow = document.getElementById("rightArrow")
 
+let currentSong = 0
+
+
+for(let i = 0; i < songArray.length; i++){
+
+    if(currentSong === 0){
+        topImgContainer.innerHTML += `
+        <figure>
+            <img src="${songArray[i].img}" alt="">
+            <div class="description">
+                <div class="bigger-text">${songArray[i].title}</div>
+                <div class="smaller-text">${songArray[i].author}</div>
+            </div>
+        </figure>
+    `
+    } else {
+        topImgContainer.innerHTML += `
+        <figure class="d-none">
+            <img src="${songArray[i].img}" alt="">
+            <div class="description">
+                <div class="bigger-text">${songArray[i].title}</div>
+                <div class="smaller-text">${songArray[i].author}</div>
+            </div>
+        </figure>
+    `
+    }
+}
+
+
+
 leftArrow.addEventListener("click", function(){
     // console.log("left-click")
 
     for(let i = 0; i < songArray.length; i++){
-        topImgContainer.innerHTML += `
-            <figure>
+
+
+        if(i === i){
+
+            currentSong = songArray.length - 1
+
+            topImgContainer.innerHTML += `
+            <figure class="d-none">
                 <img src="${songArray[i].img}" alt="">
                 <div class="description">
                     <div class="bigger-text">${songArray[i].title}</div>
                     <div class="smaller-text">${songArray[i].author}</div>
                 </div>
             </figure>
-        `
+            `
+        } else {
+
+            currentSong = currentSong++
+
+            topImgContainer.innerHTML += `
+            <figure>
+                <img src="${songArray[i++].img}" alt="">
+                <div class="description">
+                    <div class="bigger-text">${songArray[i++].title}</div>
+                    <div class="smaller-text">${songArray[i++].author}</div>
+                </div>
+            </figure>
+            `
+        }
+
+        
     }
 
 })
@@ -73,15 +125,34 @@ rightArrow.addEventListener("click", function(){
     // console.log("right-click")
 
     for(let i = songArray.length - 1; i >= 0 ; i--){
-        topImgContainer.innerHTML += `
-            <figure>
+        // currentSong = currentSong--
+
+        if(i === i){
+
+            currentSong === 0
+            topImgContainer.innerHTML += `
+            <figure class="d-none">
                 <img src="${songArray[i].img}" alt="">
                 <div class="description">
                     <div class="bigger-text">${songArray[i].title}</div>
                     <div class="smaller-text">${songArray[i].author}</div>
                 </div>
             </figure>
-        `
+            `
+        } else {
+
+            currentSong = currentSong-- 
+
+            topImgContainer.innerHTML += `
+            <figure>
+                <img src="${songArray[i--].img}" alt="">
+                <div class="description">
+                    <div class="bigger-text">${songArray[i--].title}</div>
+                    <div class="smaller-text">${songArray[i--].author}</div>
+                </div>
+            </figure>
+            `
+        }
     }
 })
 
