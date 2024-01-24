@@ -15,8 +15,6 @@
 
 
 // Creazione Array Oggetti 
-
-
 let songArray = [
     {
         img: "./assets/img/bring-me-the-horizon.jpg",
@@ -45,7 +43,6 @@ let songArray = [
     },
 ]
 
-
 let topImgContainer = document.getElementById("top-img-container")  // prendo la variabile dell'immagine grande 
 let bottomImgContainer = document.getElementById("bottom-container")  // prendo la variabile delle immagini sottostanti 
 
@@ -57,15 +54,19 @@ let currentSong = 0  // variabile dell'immagine corrente
 // inseriamo i tag nell'html  
 topImgContainer.innerHTML += `  
     <figure>
-        <img src="${songArray[currentSong].img}" alt="${songArray[currentSong].title}">
+        <img id="current-img" src="${songArray[currentSong].img}" alt="${songArray[currentSong].title}">
         <div class="description">
-            <div class="bigger-text">${songArray[currentSong].title}</div>
-            <div class="smaller-text">${songArray[currentSong].author}</div>
+            <div id="div-one" class="bigger-text">${songArray[currentSong].title}</div>
+            <div id="div-two" class="smaller-text">${songArray[currentSong].author}</div>
         </div>
     </figure>
 `
 
-for (let i = 0; i < songArray.length; i++){
+let imgHtml = document.getElementById("current-img") // prendo l'immagine da modificare 
+let divOneHtml = document.getElementById("div-one") // prendo il primo div da modificare 
+let divTwoHtml = document.getElementById("div-two") // prendo il secondo div da modificare 
+
+for (let i = 0; i < songArray.length; i++){ // ciclo for per generare i "thumbs" sotto 
     bottomImgContainer.innerHTML += `
         <figure>
             <img src="${songArray[i].img}" alt="${songArray[i].title}">
@@ -73,47 +74,47 @@ for (let i = 0; i < songArray.length; i++){
     `
 }
 
+leftArrow.addEventListener("click", function(){ // evento al click della freccia di sinistra 
+    console.log("left-click")
 
-leftArrow.addEventListener("click", function(){
-    console.log("right-click")
-
-    if(currentSong === 0){
+    if(currentSong === 0){  
         currentSong = songArray.length - 1
-        console.log(currentSong)
+        console.log(currentSong) // verifica 
 
+        imgHtml.src = songArray[currentSong].img  // sovrascriviamo la vecchia immagine 
+        divOneHtml.innerHTML = songArray[currentSong].title  // sovrascriviamo il vecchio div 
+        divTwoHtml.innerHTML = songArray[currentSong].author // sovrascriviamo il vecchio div 
         
-
-    } else {
+    } else {  
         currentSong-- 
-        console.log(currentSong)
+        console.log(currentSong) // verifica 
 
-        
-
+        imgHtml.src = songArray[currentSong].img  // sovrascriviamo la vecchia immagine
+        divOneHtml.innerHTML = songArray[currentSong].title  // sovrascriviamo il vecchio div
+        divTwoHtml.innerHTML = songArray[currentSong].author // sovrascriviamo il vecchio div
     }
     
 })
 
-
-
-rightArrow.addEventListener("click", function(){
-    console.log("left-click")
+rightArrow.addEventListener("click", function(){ // evento al click della freccia di destra  
+    console.log("right-click")
 
     if(currentSong === songArray.length - 1){
         currentSong = 0
-        console.log(currentSong)
+        console.log(currentSong) // verifica 
 
-        
+        imgHtml.src = songArray[currentSong].img  // sovrascriviamo la vecchia immagine
+        divOneHtml.innerHTML = songArray[currentSong].title  // sovrascriviamo il vecchio div
+        divTwoHtml.innerHTML = songArray[currentSong].author // sovrascriviamo il vecchio div
 
     } else {
         currentSong++
-        console.log(currentSong)
+        console.log(currentSong) // verifica 
 
-        
+        imgHtml.src = songArray[currentSong].img  // sovrascriviamo la vecchia immagine
+        divOneHtml.innerHTML = songArray[currentSong].title  // sovrascriviamo il vecchio div
+        divTwoHtml.innerHTML = songArray[currentSong].author // sovrascriviamo il vecchio div
 
     }
 
-    
-
 })
-
-
