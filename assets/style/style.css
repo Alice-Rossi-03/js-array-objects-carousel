@@ -45,7 +45,7 @@ img{
 
 .bottom-container{
     display: flex;
-    position: relative;
+    /* position: relative; */
 }
 
 .d-none{
@@ -70,23 +70,25 @@ img{
 
 .right-arrow{
     position: absolute;
-    top: 50%;
+    top: 64%; 
     transform: translate(0, -50%);
     right: 0;
-    width: 1.5em;
     fill: white;
-    padding-right: 0.5em;
+    width: 1.5em;
+    margin-right: 21em;
+    z-index: 999;
     
 }
 
 .left-arrow{
     position: absolute;
-    top: 50%;
+    top: 64%; 
     transform: translate(0, -50%);
     left: 0;
     fill: white;
     width: 1.5em;
-    padding-left: 0.5em;
+    margin-left: 21em;
+    z-index: 999;
 }
 
 .smaller-text{

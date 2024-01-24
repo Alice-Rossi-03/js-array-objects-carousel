@@ -45,42 +45,25 @@ let songArray = [
     },
 ]
 
-// let mainHtml = document.querySelector("main")
 
-let topImgContainer = document.getElementById("top-img-container")
-let bottomImgContainer = document.getElementById("bottom-container")
+let topImgContainer = document.getElementById("top-img-container")  // prendo la variabile dell'immagine grande 
+let bottomImgContainer = document.getElementById("bottom-container")  // prendo la variabile delle immagini sottostanti 
 
-let leftArrow = document.getElementById("leftArrow")
-let rightArrow = document.getElementById("rightArrow")
+let leftArrow = document.getElementById("leftArrow")  // freccia sinistra 
+let rightArrow = document.getElementById("rightArrow")  // freccia destra 
 
-let currentSong = 0
+let currentSong = 0  // variabile dell'immagine corrente 
 
-
-for(let i = 0; i < songArray.length; i++){
-
-    if(currentSong === 0){
-        topImgContainer.innerHTML += `
-        <figure>
-            <img src="${songArray[i].img}" alt="${songArray[i].title}">
-            <div class="description">
-                <div class="bigger-text">${songArray[i].title}</div>
-                <div class="smaller-text">${songArray[i].author}</div>
-            </div>
-        </figure>
-    `
-    } else {
-        topImgContainer.innerHTML += `
-        <figure class="d-none">
-            <img src="${songArray[i].img}" alt="">
-            <div class="description">
-                <div class="bigger-text">${songArray[i].title}</div>
-                <div class="smaller-text">${songArray[i].author}</div>
-            </div>
-        </figure>
-    `
-    }
-}
-
+// inseriamo i tag nell'html  
+topImgContainer.innerHTML += `  
+    <figure>
+        <img src="${songArray[currentSong].img}" alt="${songArray[currentSong].title}">
+        <div class="description">
+            <div class="bigger-text">${songArray[currentSong].title}</div>
+            <div class="smaller-text">${songArray[currentSong].author}</div>
+        </div>
+    </figure>
+`
 
 for (let i = 0; i < songArray.length; i++){
     bottomImgContainer.innerHTML += `
@@ -92,76 +75,45 @@ for (let i = 0; i < songArray.length; i++){
 
 
 leftArrow.addEventListener("click", function(){
-    console.log("left-click")
-
-    // for(let i = 0; i < songArray.length; i++){
-
-
-    //     if(i === i){
-
-    //         currentSong = songArray.length - 1
-
-    //         topImgContainer.innerHTML += `
-    //         <figure class="d-none">
-    //             <img src="${songArray[i].img}" alt="">
-    //             <div class="description">
-    //                 <div class="bigger-text">${songArray[i].title}</div>
-    //                 <div class="smaller-text">${songArray[i].author}</div>
-    //             </div>
-    //         </figure>
-    //         `
-    //     } else {
-
-    //         currentSong = currentSong++
-
-    //         topImgContainer.innerHTML += `
-    //         <figure>
-    //             <img src="${songArray[i++].img}" alt="">
-    //             <div class="description">
-    //                 <div class="bigger-text">${songArray[i++].title}</div>
-    //                 <div class="smaller-text">${songArray[i++].author}</div>
-    //             </div>
-    //         </figure>
-    //         `
-    //     }
-
-        
-    // }
-
-})
-
-rightArrow.addEventListener("click", function(){
     console.log("right-click")
 
-    // for(let i = songArray.length - 1; i >= 0 ; i--){
-    //     // currentSong = currentSong--
+    if(currentSong === 0){
+        currentSong = songArray.length - 1
+        console.log(currentSong)
 
-    //     if(i === i){
+        
 
-    //         currentSong === 0
-    //         topImgContainer.innerHTML += `
-    //         <figure class="d-none">
-    //             <img src="${songArray[i].img}" alt="">
-    //             <div class="description">
-    //                 <div class="bigger-text">${songArray[i].title}</div>
-    //                 <div class="smaller-text">${songArray[i].author}</div>
-    //             </div>
-    //         </figure>
-    //         `
-    //     } else {
+    } else {
+        currentSong-- 
+        console.log(currentSong)
 
-    //         currentSong = currentSong-- 
+        
 
-    //         topImgContainer.innerHTML += `
-    //         <figure>
-    //             <img src="${songArray[i--].img}" alt="">
-    //             <div class="description">
-    //                 <div class="bigger-text">${songArray[i--].title}</div>
-    //                 <div class="smaller-text">${songArray[i--].author}</div>
-    //             </div>
-    //         </figure>
-    //         `
-    //     }
-    // }
+    }
+    
 })
+
+
+
+rightArrow.addEventListener("click", function(){
+    console.log("left-click")
+
+    if(currentSong === songArray.length - 1){
+        currentSong = 0
+        console.log(currentSong)
+
+        
+
+    } else {
+        currentSong++
+        console.log(currentSong)
+
+        
+
+    }
+
+    
+
+})
+
 
