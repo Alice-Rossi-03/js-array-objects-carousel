@@ -8,6 +8,10 @@ html{
     font-family: sans-serif;
 }
 
+body{
+    background-color: rgba(35, 35, 35, 0.85);
+}
+
 .container{
     margin: 2em auto;
     width: 100%;
@@ -15,8 +19,8 @@ html{
 }
 
 header{
-    background-color: rgba(127, 88, 155, 0.414);
-    color: rgb(120, 96, 172);
+    background-color: rgba(0, 0, 0, 0.784);
+    color: rgb(231, 219, 255);
     text-align: center;
     padding: 1em;
     margin: 1em 0;

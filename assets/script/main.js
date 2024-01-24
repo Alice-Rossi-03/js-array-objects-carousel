@@ -48,6 +48,7 @@ let songArray = [
 // let mainHtml = document.querySelector("main")
 
 let topImgContainer = document.getElementById("top-img-container")
+let bottomImgContainer = document.getElementById("bottom-container")
 
 let leftArrow = document.getElementById("leftArrow")
 let rightArrow = document.getElementById("rightArrow")
@@ -60,7 +61,7 @@ for(let i = 0; i < songArray.length; i++){
     if(currentSong === 0){
         topImgContainer.innerHTML += `
         <figure>
-            <img src="${songArray[i].img}" alt="">
+            <img src="${songArray[i].img}" alt="${songArray[i].title}">
             <div class="description">
                 <div class="bigger-text">${songArray[i].title}</div>
                 <div class="smaller-text">${songArray[i].author}</div>
@@ -81,78 +82,86 @@ for(let i = 0; i < songArray.length; i++){
 }
 
 
+for (let i = 0; i < songArray.length; i++){
+    bottomImgContainer.innerHTML += `
+        <figure>
+            <img src="${songArray[i].img}" alt="${songArray[i].title}">
+        </figure>
+    `
+}
+
 
 leftArrow.addEventListener("click", function(){
-    // console.log("left-click")
+    console.log("left-click")
 
-    for(let i = 0; i < songArray.length; i++){
+    // for(let i = 0; i < songArray.length; i++){
 
 
-        if(i === i){
+    //     if(i === i){
 
-            currentSong = songArray.length - 1
+    //         currentSong = songArray.length - 1
 
-            topImgContainer.innerHTML += `
-            <figure class="d-none">
-                <img src="${songArray[i].img}" alt="">
-                <div class="description">
-                    <div class="bigger-text">${songArray[i].title}</div>
-                    <div class="smaller-text">${songArray[i].author}</div>
-                </div>
-            </figure>
-            `
-        } else {
+    //         topImgContainer.innerHTML += `
+    //         <figure class="d-none">
+    //             <img src="${songArray[i].img}" alt="">
+    //             <div class="description">
+    //                 <div class="bigger-text">${songArray[i].title}</div>
+    //                 <div class="smaller-text">${songArray[i].author}</div>
+    //             </div>
+    //         </figure>
+    //         `
+    //     } else {
 
-            currentSong = currentSong++
+    //         currentSong = currentSong++
 
-            topImgContainer.innerHTML += `
-            <figure>
-                <img src="${songArray[i++].img}" alt="">
-                <div class="description">
-                    <div class="bigger-text">${songArray[i++].title}</div>
-                    <div class="smaller-text">${songArray[i++].author}</div>
-                </div>
-            </figure>
-            `
-        }
+    //         topImgContainer.innerHTML += `
+    //         <figure>
+    //             <img src="${songArray[i++].img}" alt="">
+    //             <div class="description">
+    //                 <div class="bigger-text">${songArray[i++].title}</div>
+    //                 <div class="smaller-text">${songArray[i++].author}</div>
+    //             </div>
+    //         </figure>
+    //         `
+    //     }
 
         
-    }
+    // }
 
 })
 
 rightArrow.addEventListener("click", function(){
-    // console.log("right-click")
+    console.log("right-click")
 
-    for(let i = songArray.length - 1; i >= 0 ; i--){
-        // currentSong = currentSong--
+    // for(let i = songArray.length - 1; i >= 0 ; i--){
+    //     // currentSong = currentSong--
 
-        if(i === i){
+    //     if(i === i){
 
-            currentSong === 0
-            topImgContainer.innerHTML += `
-            <figure class="d-none">
-                <img src="${songArray[i].img}" alt="">
-                <div class="description">
-                    <div class="bigger-text">${songArray[i].title}</div>
-                    <div class="smaller-text">${songArray[i].author}</div>
-                </div>
-            </figure>
-            `
-        } else {
+    //         currentSong === 0
+    //         topImgContainer.innerHTML += `
+    //         <figure class="d-none">
+    //             <img src="${songArray[i].img}" alt="">
+    //             <div class="description">
+    //                 <div class="bigger-text">${songArray[i].title}</div>
+    //                 <div class="smaller-text">${songArray[i].author}</div>
+    //             </div>
+    //         </figure>
+    //         `
+    //     } else {
 
-            currentSong = currentSong-- 
+    //         currentSong = currentSong-- 
 
-            topImgContainer.innerHTML += `
-            <figure>
-                <img src="${songArray[i--].img}" alt="">
-                <div class="description">
-                    <div class="bigger-text">${songArray[i--].title}</div>
-                    <div class="smaller-text">${songArray[i--].author}</div>
-                </div>
-            </figure>
-            `
-        }
-    }
+    //         topImgContainer.innerHTML += `
+    //         <figure>
+    //             <img src="${songArray[i--].img}" alt="">
+    //             <div class="description">
+    //                 <div class="bigger-text">${songArray[i--].title}</div>
+    //                 <div class="smaller-text">${songArray[i--].author}</div>
+    //             </div>
+    //         </figure>
+    //         `
+    //     }
+    // }
 })
 
